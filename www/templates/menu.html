@@ -1,0 +1,35 @@
+<ion-side-menus>
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-stable bar-assertive">
+            <ion-nav-back-button></ion-nav-back-button>
+            
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+            </ion-nav-buttons>
+            <ion-nav-buttons side="right">
+                <button class="button button-light button-icon-left button-clear" ng-click="showCartModal()">
+                    <i class="icon ion-android-cart"></i>{{cartCount}}
+                </button>
+            </ion-nav-buttons>
+                
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+    
+    <ion-side-menu>
+        <img src="img/menu_banner.jpg" style="width:100%; height:auto;"/>
+        <ion-list>
+            <ion-item ng-if="!userData" menu-close ui-sref="app.login"><i class=""></i>Login</ion-item>
+            <ion-item ng-if="!userData" menu-close ui-sref="app.signup"><i class=""></i>Sign Up</ion-item>
+            <ion-item menu-close ui-sref="app.home"><i class="ion-android-home"></i>Home</ion-item>
+            <ion-item menu-close ui-sref="app.browse"><i class="ion-android-cart"></i>Browse</ion-item>
+            <ion-item menu-close><i class="ion-android-happy"></i>Who we are?</ion-item>
+            <ion-item menu-close><i class="ion-android-clipboard"></i>Privacy Policy</ion-item>
+            <ion-item menu-close><i class="ion-ios-cart-outline"></i>Call Us</ion-item>
+            <!--<ion-item class="item-divider">Categories</ion-item>
+            <ion-item ng-repeat = "cat in mainCategories" menu-close ui-sref="app.category({categoryID: cat.slug})">{{cat.name}}</ion-item>-->
+            <ion-item ng-if="userData"><i class="ion-ios-cart-outline"></i>Account</ion-item>
+            <ion-item menu-close ui-sref="app.home" ng-click="logout()" ng-if="userData"><i class="ion-ios-cart-outline"></i>Logout</ion-item>
+        </ion-list>
+    </ion-side-menu>
+</ion-side-menus>
